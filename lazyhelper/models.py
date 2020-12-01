@@ -12,7 +12,7 @@ class User(models.Model):
 
 
 class Role(models.Model):
-    role = models.CharField(max_length=10)
+    role = models.CharField(max_length=11, null=True)
 
     def __str__(self):
         return self.role
@@ -23,12 +23,13 @@ class Product(models.Model):
         ('dungeon', 'Dungeon'),
         ('raid', 'Raid'),
         ('pvp', 'PVP'),
+        ('other', 'Other'),
     )
 
     name = models.CharField(max_length=80, null=True)
     price = models.FloatField(null=True)
     category = models.CharField(max_length=10, null=True, choices=CATEGORY)
-    description = models.TextField(max_length=300, null=True)
+    description = models.TextField(max_length=600, null=True)
 
     def __str__(self):
         return self.name
@@ -43,8 +44,8 @@ class Order(models.Model):
 
     product = models.ForeignKey('Product', null=True, on_delete=models.SET_NULL)
     comment = models.TextField(max_length=300, blank=True, null=True)
-    customer = models.ForeignKey('User', null=True, on_delete=models.SET_NULL)
-    contractor = models.IntegerField(null=True, blank=True)
+    customer = models.ForeignKey('User', null=True, on_delete=models.SET_NULL, related_name='customer')
+    contractor = models.ForeignKey('User', null=True, on_delete=models.SET_NULL, related_name='contracotor')
     creation_date = models.DateTimeField(auto_now_add=True, null=True)
     execution_date = models.DateTimeField(blank=True, null=True)
     price = models.FloatField(null=True)
