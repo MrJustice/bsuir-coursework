@@ -1,0 +1,33 @@
+{% extends 'lazyhelper/main.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content%}
+<h1>Welcome to Lazyhelper.</h1>
+<div class="main_container">
+    <section id="main_info">
+        <p>Lazyhelper is a place where any WoW player who has difficulty with any type of content 
+        in the game can submit a request and get help from professional players. 
+        Play for your pleasure :)</p>
+    </section>
+    <section id="main_products">
+        <h2 class="headline">Services:</h2>
+        <ul id="top_three">
+            {% for p in products %}
+            <li class="product_card">
+                <div class="product_image">
+                    <img src="" alt="">
+                </div>
+                <div class="product_name"><a href="">{{p.name}}</a></div>
+                <p class="product_description">{{p.description}}</p>
+                <div class="product_price"><p>{{p.price}}$</p></div>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+<a href="https://google.com" class="button">Create request</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'lazyhelper/main.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/user.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Hello {{user.username}}!</h1>
+<h2>You have {{order_count}} orders now. Here is their list:</h2>
+{% endblock %}
