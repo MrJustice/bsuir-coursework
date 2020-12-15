@@ -2,6 +2,7 @@ from .forms import *
 from .models import *
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -20,11 +21,6 @@ def registration(request):
 
     context = {'form': form}
     return render(request, 'lazyhelper/register.html', context)
-
-def login(request):
-    
-    context = {}
-    return render(request, 'lazyhelper/login.html', context)
 
 def catalog(request):
     products = Product.objects.all()
@@ -54,7 +50,6 @@ def user(request, pk):
         done = contractor_orders.filter(state='Done')
         context = {'user': user, 'contractor_orders': contractor_orders, 'orders_count': orders_count,
         'inprogress_orders': inprogress, 'done_orders': done, 'all_orders': all_orders}
-
     return render(request, 'lazyhelper/user.html', context)
 
 def create_order(request, pk):

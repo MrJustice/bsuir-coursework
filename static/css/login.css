@@ -1,3 +1,30 @@
 h1 {
     color: #FFF;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+button {
+    color: #999999;
+    background: #1d1d1d;
+    padding: 10px;
+    border: 2px #33E4B0 solid;
+    border-image-slice: 1;
+    transition: background 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+button:hover {
+    color: #1d1d1d;
+    border-width: 0px;
+    background: #33E4B0;
+}
