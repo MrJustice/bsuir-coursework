@@ -9,11 +9,16 @@
 <h2>Sign up</h2>
 <form method="POST" action="">
     {% csrf_token %}
-    <!-- {% for field in form %}
-        {{field.label}}
+    {% for field in form %}
+        <label for="">{{field.label}}</label>
         {{field}}
-    {% endfor %} -->
-    {{ form.as_p }}
-    <input type="submit" name="Create User">
+    {% endfor %}
+    <!-- {{ form.as_p }} -->
+    <button type="submit" name="Create User">Complete</button>
 </form>
+{% if messages %}
+    {% for message in messages %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+{% endif %}
 {% endblock %}

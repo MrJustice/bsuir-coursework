@@ -11,13 +11,17 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 25px;
+    padding-top: 0px;
+    width: 70%;
 }
 
 button {
     color: #999999;
     background: #1d1d1d;
     padding: 10px;
+    width: 70%;
     border: 2px #33E4B0 solid;
     border-image-slice: 1;
     transition: background 0.3s ease 0s, left 0.3s ease 0s;

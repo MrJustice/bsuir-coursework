@@ -27,7 +27,7 @@
             <td>{{order.price}}</td>
             <td>{{order.creation_date}}</td>
             <td>{{order.state}}</td>
-            <td></td>
+            <td><button>Done</button></td>
         </tr>
         {% endfor %}
         <tr><td class="table_header" colspan="6">Vacant orders:</td></tr>
@@ -103,7 +103,7 @@
             <td>{{order.price}}</td>
             <td>{{order.creation_date}}</td>
             <td>{{order.state}}</td>
-            <td></td>
+            <td><button>Take order</button></td>
         </tr>
         {% endfor %}
     </table>

@@ -19,4 +19,4 @@ class UserChangeForm(UserChangeForm):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['product', 'comment', 'price']
+        fields = ['customer', 'product', 'comment', 'price']

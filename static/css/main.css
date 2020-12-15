@@ -60,7 +60,7 @@ nav a {
     color: #999999;
 }
 
-nav a::after {    
+nav a:after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 5;
     content: "";
@@ -74,7 +74,7 @@ nav a::after {
 }
   
 nav a:hover:after { 
-    width: 10%; 
+    width: 100%; 
     left: 0; 
 }
 

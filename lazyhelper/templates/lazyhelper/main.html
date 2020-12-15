@@ -17,23 +17,6 @@
         <header class="header container">
             {% include 'lazyhelper/header.html' %}
         </header>
-        
-        <div class="user_navigation">
-        {% if user.is_authenticated %}
-            <p>Welcome {{ user.username }}!&nbsp</p>
-            <ul>
-                <a href="{% url 'logout' %}">Logout</a>
-                <a href="{% url 'user' user.id %}">My orders</a>
-            </ul>
-        {% else %}
-            <p>You are not logged in, please&nbsp</p>
-            <ul>
-                <a href="{% url 'login' %}">Login</a>
-                or
-                <a href="{% url 'registration' %}">Signup</a>
-            </ul>
-        {% endif %}
-        </div>
 
         <main>
             {% block content %}

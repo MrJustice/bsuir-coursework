@@ -6,5 +6,20 @@
 {% endblock %}
 
 {% block content %}
+{% include 'lazyhelper/user_navigation.html' %}
 <h1>Catalog</h1>
+<section id="main_products">
+    <ul id="top_three">
+        {% for p in products %}
+        <li class="product_card">
+            <div class="product_image">
+                <img src="" alt="">
+            </div>
+            <div class="product_name"><a href="{% url 'product' p.id %}">{{p.name}}</a></div>
+            <p class="product_description">{{p.description}}</p>
+            <div class="product_price"><p>{{p.price}}$</p></div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}
