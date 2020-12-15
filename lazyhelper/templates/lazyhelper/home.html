@@ -21,7 +21,7 @@
                 <div class="product_image">
                     <img src="" alt="">
                 </div>
-                <div class="product_name"><a href="">{{p.name}}</a></div>
+                <div class="product_name"><a href="{% url 'product' p.id %}">{{p.name}}</a></div>
                 <p class="product_description">{{p.description}}</p>
                 <div class="product_price"><p>{{p.price}}$</p></div>
             </li>
@@ -29,5 +29,5 @@
         </ul>
     </section>
 </div>
-<a href="https://google.com" class="button">Create request</a>
+<a href="{% url 'create_order' user.id %}" class="button">Create request</a>
 {% endblock %}

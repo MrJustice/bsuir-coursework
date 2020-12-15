@@ -32,6 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
 }
 
 header, footer, main {
@@ -48,6 +49,10 @@ header, main {
 
 footer {
     margin-top: auto;
+}
+
+nav {
+    display: flex;
 }
 
 nav li {

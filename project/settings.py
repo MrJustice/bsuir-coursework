@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'lazyhelper',
 ]
 
+AUTH_USER_MODEL = 'lazyhelper.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -70,7 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -130,3 +131,7 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+
+LOGIN_REDIRECT_URL = 'home' 
+LOGOUT_REDIRECT_URL = 'home'

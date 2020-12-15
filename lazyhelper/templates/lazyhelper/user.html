@@ -7,5 +7,106 @@
 
 {% block content %}
 <h1>Hello {{user.username}}!</h1>
-<h2>You have {{order_count}} orders now. Here is their list:</h2>
+<h2>You have {{order_count}} order(s) now.</h2>
+<div class="orders">
+    {% if user.role.role == 'Customer' %}
+    <table class="user_orders">
+        <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Creation date</th>
+            <th>State</th>
+            <th>Finished</th>
+        </tr>
+        <tr><td class="table_header" colspan="6">In progress orders:</td></tr>
+        {% for order in inprogress_orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+        <tr><td class="table_header" colspan="6">Vacant orders:</td></tr>
+        {% for order in vacant_orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+        <tr><td class="table_header" colspan="6">Done orders:</td></tr>
+        {% for order in done_orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% elif user.role.role == 'Contractor' %}
+    <table class="user_orders">
+        <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Creation date</th>
+            <th>State</th>
+        </tr>
+        <tr><td class="table_header" colspan="6">In progress orders:</td></tr>
+        {% for order in inprogress_orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+        </tr>
+        {% endfor %}
+        <tr></tr>
+        <tr><td class="table_header" colspan="6">Done orders:</td></tr>
+        {% for order in done_orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Now available {{orders_count}} order(s). Challenge yourself!</h2>
+    <table class="all_orders">
+        <tr>
+            <th>User</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Creation date</th>
+            <th>State</th>
+            <th></th>
+        </tr>
+        {% for order in all_orders %}
+        <tr>
+            <td>{{order.customer.username}}</td>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.creation_date}}</td>
+            <td>{{order.state}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
 {% endblock %}

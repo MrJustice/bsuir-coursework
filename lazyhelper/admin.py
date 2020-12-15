@@ -1,12 +1,19 @@
+from .forms import *
+from .models import *
 from django.contrib import admin
 
-from .models import *
+@admin.register(CustomUser)
+class UsersAdmin(admin.ModelAdmin):
+    model = CustomUser
+    add_form = UserRegistrationForm
+    form = UserChangeForm
+    list_display = ('id', 'username', 'email', 'role')
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'role')
 
-# admin.site.register(User, UserAdmin)
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'price', 'category')
+
+
 admin.site.register(Role)
-admin.site.register(Product)
 admin.site.register(Order)

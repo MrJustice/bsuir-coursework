@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    width: 100%;
+    margin: 25px auto;
+    border: 1px solid #999999;
+    border-bottom: 2px solid #33E4B0;
+    border-collapse: collapse;
+}
+
+table tr:hover {
+    background: #292929;
+}
+
+table th, 
+table td {
+    color: #FFF;
+    border: 1px solid #999999;
+    font-size: 14px;
+    padding: 12px 35px;
+    border-collapse: collapse;
+}
+
+table td:first-letter {
+    text-transform: uppercase;
+}
+
+table th {
+    color: #1d1d1d;
+    background: #33E4B0;
+    text-transform: uppercase;
+}

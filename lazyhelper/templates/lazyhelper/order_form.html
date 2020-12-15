@@ -1,0 +1,14 @@
+{% extends 'lazyhelper/main.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/new_order.css' %}">
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="submit">
+</form>
+{% endblock %}
